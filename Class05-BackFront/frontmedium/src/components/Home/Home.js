@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import axios from 'axios';
 import ListItem from "./ListDetail";
+import {getPosts} from "../../service";
 
 class Home extends Component{
 
@@ -14,8 +15,11 @@ class Home extends Component{
     }
 
     componentWillMount() {
+        const token = localStorage.getItem("token");
 
-        axios.get(`${this.base_url}/post/`)
+        if(!token) return this.props.history.push("/login");
+
+        getPosts(token)
             .then(res => {
                 console.log(res.data);
                 this.setState({posts:res.data.posts})
