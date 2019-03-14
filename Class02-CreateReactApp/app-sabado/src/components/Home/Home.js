@@ -59,7 +59,9 @@ class  Home extends Component{
     };
     handleSubmit = (e) => {
         e.preventDefault();
-        let {form} = this.state;
+        let {form,data} = this.state;
+        data.push(form);
+        this.setState({data});
         console.log("log =>", form);
     };
 
