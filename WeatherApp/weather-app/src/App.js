@@ -52,8 +52,7 @@ class App extends Component {
           <Col xs={12} md={6}>
             <Paper elevation={4}>
               <div className="details">
-                {!city ? <h2>No se seleciono ciudad</h2>:
-                <ForcastExtended city={city} />}
+                {city && <ForcastExtended city={city} />}
               </div>
             </Paper>
           </Col>
