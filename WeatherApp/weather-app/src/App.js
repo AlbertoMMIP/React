@@ -29,7 +29,7 @@ class App extends Component {
   }
   
   handleSelectionLocation = city => {
-    console.log(`handleSelectionLocation ${city}`);
+    //console.log(`handleSelectionLocation ${city}`);
     this.setState({city});
   }
 
