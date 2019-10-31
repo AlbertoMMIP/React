@@ -42,10 +42,9 @@ class ForcastExtended extends Component {
         data => (data.json())
       ).then(
         weatherData => {
-          console.log(weatherData);
+          //console.log(weatherData);
           const forecastData = transformForecast(weatherData);
-          console.log(forecastData);
-          
+          //console.log(forecastData);          
           this.setState({forecastData})
         })
   }
