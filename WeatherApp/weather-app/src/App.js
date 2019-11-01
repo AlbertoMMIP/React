@@ -4,6 +4,7 @@ import Paper from '@material-ui/core/Paper';
 import AppBar from '@material-ui/core/AppBar'
 import Typography from '@material-ui/core/Typography';
 import Toolbar from '@material-ui/core/Toolbar';
+import PropTypes from 'prop-types';
 import {Grid, Row, Col} from 'react-flexbox-grid';
 import './App.css';
 import LocationList from './components/LocationList';
@@ -65,10 +66,12 @@ class App extends Component {
   }
 }
 
+App.propTypes = {
+  setCity: PropTypes.func.isRequired,
+}
+
 const mapDispatchToPropsActions = dispatch => ({
   setCity: value => dispatch(setCity(value))
 });
 
-const AppConnected = connect(null,mapDispatchToPropsActions)(App)
-
-export default AppConnected
+export default connect(null,mapDispatchToPropsActions)(App)
