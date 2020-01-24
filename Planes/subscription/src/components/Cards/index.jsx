@@ -29,21 +29,22 @@ export default function MediaCard(props) {
         <CardMedia
           className={classes.media}
           image={props.logo}
-          title="Contemplative Reptile"
+          title="Tekrisk"
         />
         <CardContent>
           <Typography gutterBottom variant="h5" component="h2">
             {props.title}
           </Typography>
-          <Typography variant="body2" color="textSecondary" component="p">
-            Lizards are a widespread group of squamate reptiles, with over 6,000 species, ranging
-            across all continents except Antarctica
-          </Typography>
+          {props.characters && props.characters.map((i,ind) => (
+            <Typography key={ind} variant="body2" color="textSecondary" component="p">
+              {i.desc}
+            </Typography>
+          ))}
         </CardContent>
       </CardActionArea>
       <CardActions className={classes.button}>
         <Button size="small" variant="contained" color="primary">
-          Pay
+          {props.textButton}
         </Button>
       </CardActions>
     </Card>

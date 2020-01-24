@@ -4,9 +4,11 @@ import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 import {BrowserRouter} from "react-router-dom";
+import NavBar from './components/NavBar';
 
  const WithRoutes = () => (
    <BrowserRouter>
+    <NavBar />
     <App />
    </BrowserRouter>
  )
