@@ -19,7 +19,11 @@ const styles = theme => ({
     justifyContent: 'space-between',
   },
   left: {
-    flex: 1,
+    flex: 1, 
+    textDecoration: "none",
+    "&:active":{
+        textDecoration: "none"
+    }
   },
   leftLinkActive: {
     color: theme.palette.common.white,
@@ -32,7 +36,11 @@ const styles = theme => ({
   rightLink: {
     fontSize: 16,
     color: theme.palette.common.white,
-    marginLeft: theme.spacing(3),
+    marginLeft: theme.spacing(3), 
+    textDecoration: "none",
+    "&:active":{
+        textDecoration: "none"
+    }
   },
   linkSecondary: {
     color: theme.palette.secondary.main,
@@ -46,8 +54,8 @@ function AppAppBar(props) {
     <div>
       <AppBar position="fixed">
         <Toolbar className={classes.toolbar}>
-          <div className={classes.left}>
-          <Link to="/" >
+          <div >
+          <Link className={classes.left} to="/" >
           <Typography className={classes.title} variant="h6" component="h2">{'T E K  -  R I S K'}</Typography>
           </Link>
           </div>
