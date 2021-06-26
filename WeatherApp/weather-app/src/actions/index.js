@@ -14,11 +14,14 @@ const setWeatherCity = payload => ({ type: SET_WEATHER_CITY, payload });
 
 export const setSelectedCity = payload => {
 
-  return async dispatch => {
+  return async (dispatch, getState) => {
     const url_forecast = getUrlForeCastByCity(payload);
 
     dispatch(setCity(payload));
-
+    const state = getState();
+    const date = state.cities[payload] && state.cities[payload].forcastDataDate;
+    const now = new Date();
+    if (date && now - date < (1 * 60 * 1000) ) return; // Improve performance. With this the app makes the fetch after one minute
     const data = await fetch(url_forecast);
     const weather_data = await data.json();
     const forecastData = transformForecast(weather_data);
@@ -43,7 +46,7 @@ export const setWeather = payload => {
             dispatch(setWeatherCity({ city, weather }));
         })
         .catch(err => {
-            console.log(err);
+            console.error(err);
         })
     })
   }
